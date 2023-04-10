@@ -129,10 +129,8 @@ add machine to list，设置core为4
 *？？需要总结一下设计流程*
 
 Ctrl/Cmd + Shift + V 快捷键在编辑器中打开 Clipboad Preview，然后直接粘贴图像即可，Clipboad Preview 会自动将其转换为 Markdown 代码。
-
-![Alt text](@%60~78%60Z$@B%607QMHJ%7B%5B2EOZT.png)
-![Alt text](%7DGYGG04R$I2O368J_5%25RQQK.png)
-
+![Alt text](pic/%7DGYGG04R$I2O368J_5%25RQQK.png)
+![Alt text](pic/@%60~78%60Z$@B%607QMHJ%7B%5B2EOZT.png)
 **Monday, April 10, 2023 @ 06:30:47 PM**
 ##峰值转速仿真
 一般先仿真峰值转速之后仿真峰值转矩，再仿真一个额定工作点就行
@@ -153,4 +151,13 @@ A:lqrms*sqrt(2)*sin(2*pi*rotor_speed con/60*10*time)I
 B相:lqrms*sqrt(2)*sin(2*pi*rotor_speed_con/60*10*time-2*pi/3)
 C相: lqrms*sqrt(2)*sin(2*pi*rotor_speed_con/60*10*time+2*pi/3)
 
+**Monday, April 10, 2023 @ 07:05:26 PM**
+了解一下磁场调制理论，下载知乎文章
 
+**Monday, April 10, 2023 @ 09:18:29 PM**
+使用report>winding>任意一相电压，即可查看反电动势
+
+如果需要查看电感矩阵，需要在model>model depth>matrix compu里面勾选并运算之后到报告中查看，不然默认是空白
+
+**Monday, April 10, 2023 @ 09:52:15 PM**
+试试吧SD卡作为miui的主要存储空间，这个红米10也能玩转了
