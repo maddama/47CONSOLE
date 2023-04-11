@@ -128,7 +128,9 @@ rmxprt里面，wind里面右键connect all coil可以得到线圈的连接情况
 除，因为之前算电角度的时候，是用机械角度乘以极对数。
 
 **Monday, April 10, 2023 @ 06:13:08 PM**
+
 ##参数扫描
+
 optimetric可以add一个参数，设置步长之后就可以进行扫描
 
 HPC和analis这里可以设置多核计算
@@ -172,12 +174,38 @@ B相:lqrms*sqrt(2)*sin(2*pi*rotor_speed_con/60*10*time-2*pi/3)
 C相: lqrms*sqrt(2)*sin(2*pi*rotor_speed_con/60*10*time+2*pi/3)
 
 **Monday, April 10, 2023 @ 07:05:26 PM**
+
 了解一下磁场调制理论，下载知乎文章
 
 **Monday, April 10, 2023 @ 09:18:29 PM**
+
 使用report>winding>任意一相电压，即可查看反电动势
 
 如果需要查看电感矩阵，需要在model>model depth>matrix compu里面勾选并运算之后到报告中查看，不然默认是空白
 
 **Monday, April 10, 2023 @ 09:52:15 PM**
+
 试试吧SD卡作为miui的主要存储空间，这个红米10也能玩转了
+
+**Tuesday, April 11, 2023 @ 12:09:16 AM**
+
+继续尝试hory的acmop
+一直在报错conda install pygmo，怀疑还是chen老师自己设置有问题
+最后使用pip直接装了，conda还是玩不明白
+给我报错的大意是pygmo无法通过pip直接安装，好烦，是不是还是要conda，用conda也可以防止一部分污染
+chen老师这里关键是需要太多支持了，能不能把pyfemm里面的东西单独搞出来自己写一个，还有作图的那些
+
+**Tuesday, April 11, 2023 @ 02:29:51 AM**
+
+acmop学习阻力太大了，现阶段是不是先放一下？
+感觉尽快搞完轴向+maxwell小技巧和comsol电磁比较重要
+except:sys.path.insert(0, 'D:/DrH/Codes/acmop/codes3/')
+用的是绝对路径，搞毛啊
+pygmo安装失败大概率和mworks里面用到的一些东西有关
+
+**Tuesday, April 11, 2023 @ 02:59:13 AM**
+
+真的好烦啊这个东西，多目标优化，最好是能攥在自己手里就好
+chen老师的东西很难模块化来用，暂时先放一放
+抓紧先把maxwell所有的能回的会了然后学会分数槽
+
