@@ -249,3 +249,8 @@ D’Amato2022综述阅读，感觉和王鹏的写的差不多，现在才看一�
 报错RatedOutputPower must be greater than 0. ，应该是因为删除了电路cirt导致的
 ![Alt text](pic/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-11%20173749.png)
 明明选了double stator，为何生成了double rotor，好奇怪
+
+siglesided会浪费很多磁通，如果使用double可以都兜住
+使用bldc控制的话，一般就是每3coil对应4poles，这是那个拖动方式决定的
+
+还是继续搞一下conda吧，顺便开个新坑，看一下pyaedt的东西
