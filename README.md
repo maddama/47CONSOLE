@@ -72,7 +72,7 @@ click machine and then set fraction to one to get the whole machine.
 
 这里一个比较方便的设置就是把上下都设为沿着z轴，所以经常会把电机这样摆放。
 
-band设置要比运动部分稍大inner和outer正好包住就行摁住alt和方向可以快速转向
+band设置要比运动部分稍大inner和outer正好包住就行摁住alt和方向可以快速转向Tuesday, April 11, 2023 @ 05:52:22 PM修改：他的意思仅仅是alt和mb1可以替代使用mb2进行旋转的作用，非常无语，定位到平面还是需要用电机coordinate
 
 电流面coilterm可以用来加载电流方向和匝数等dependentsheet用来赋予边界条件
 
@@ -209,3 +209,43 @@ pygmo安装失败大概率和mworks里面用到的一些东西有关
 chen老师的东西很难模块化来用，暂时先放一放
 抓紧先把maxwell所有的能回的会了然后学会分数槽
 
+**Tuesday, April 11, 2023 @ 11:38:30 AM**
+
+轴向的绕组理论？先放一下
+之前听到idiq辨识还是有问题，要上功率容易掉电压，感觉轴向的控制确实比较麻烦，使用常规的FOC可能会出比较大的问题，参数辨识真的很重要
+
+**Tuesday, April 11, 2023 @ 02:23:04 PM**
+
+办完港澳通行证回来，记得20号去取一下
+开始准备做振动测试这个事情
+快速过一遍DTC之后就先把袁雷放一边，不能匀出更多时间给控制了
+感觉把轴向那个分析外特性的过程学会比较重要
+
+**Tuesday, April 11, 2023 @ 03:12:59 PM**
+
+D’Amato2022综述阅读，感觉和王鹏的写的差不多，现在才看一半，希望能多讲建模的事情
+
+**Tuesday, April 11, 2023 @ 03:55:35 PM**
+
+找了一圈，资产，实验室，采购，没有找到底座的主人，等张松老师进一步安排
+
+1.在VS Code中打开命令面板，可以使用快捷键Ctrl+Shift+P或者F1键来打开。
+2.在命令面板中输入Preferences: Open Keyboard Shortcuts，然后选择这个选项来打开Keyboard Shortcuts配置页面。
+3.在搜索栏中输入Timestamp，然后定位到Timestamp插件的命令。
+修改为了alt+t
+
+**Tuesday, April 11, 2023 @ 04:37:18 PM**
+
+继续看了点rundong的overview of axial flux，师兄做的应该是double side
+
+**Tuesday, April 11, 2023 @ 05:04:04 PM**
+
+轴向仿真的问题，三维N极定义的是R，phi，Z，那所谓的halbach充磁会不会比较麻烦
+
+**Tuesday, April 11, 2023 @ 05:26:29 PM**
+
+![Alt text](pic/1681205098856.jpg)
+在machine里面可以直接选择double sided，是否能达到一样的效果？试试
+报错RatedOutputPower must be greater than 0. ，应该是因为删除了电路cirt导致的
+![Alt text](pic/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-04-11%20173749.png)
+明明选了double stator，为何生成了double rotor，好奇怪
