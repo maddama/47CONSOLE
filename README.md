@@ -254,3 +254,4 @@ siglesided会浪费很多磁通，如果使用double可以都兜住
 使用bldc控制的话，一般就是每3coil对应4poles，这是那个拖动方式决定的
 
 还是继续搞一下conda吧，顺便开个新坑，看一下pyaedt的东西
+记一下要用jpg存本地图床才能显示markdown
