@@ -255,3 +255,17 @@ siglesided会浪费很多磁通，如果使用double可以都兜住
 
 还是继续搞一下conda吧，顺便开个新坑，看一下pyaedt的东西
 记一下要用jpg存本地图床才能显示markdown
+
+**Wednesday, April 12, 2023 @ 08:58:21 AM**
+
+别用win+shift+s截图了，出来的是png
+
+Relative Permeability（相对磁导率）：相对磁导率是材料在存在磁场时的磁导率与真空中磁场的比值，是描述材料磁性的重要参数。N36Z_23的相对磁导率可能比较高，表示它在磁场中容易被磁化。
+Bulk Conductivity（体导率）：体导率是指材料对电流的导电性能。N36Z_23的体导率可能较低，因为铁氧体材料通常为绝缘材料，不会很好地传导电流。
+Magnetic Coercivity（磁饱和磁场强度）：磁饱和磁场强度是材料在磁化过程中需要的最大磁场强度，通常用于描述材料的磁性，但与相对磁导率不同，它与材料的饱和磁化强度有关。N36Z_23的磁饱和磁场强度可能比较高，表示它可以容纳更多的磁通量，但这并不一定意味着它具有较强的磁性能力。
+
+**Wednesday, April 12, 2023 @ 09:28:08 AM**
+
+Navigator Error
+An unexpected error occurred on Navigator start-up
+原来是整个anaconda出问题了
