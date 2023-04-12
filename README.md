@@ -269,3 +269,16 @@ Magnetic Coercivity（磁饱和磁场强度）：磁饱和磁场强度是材料�
 Navigator Error
 An unexpected error occurred on Navigator start-up
 原来是整个anaconda出问题了
+Navigator Error
+An unexpected error occurred on Navigator start-up
+
+Report
+Please report this issue in the anaconda issue tracker
+
+Main Error
+check_hostname requires server_hostname
+Traceback
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\anaconda_navigator\exceptions.py", line 72, in exception_handler
+ ### 需要处理以下这个hostname的问题
+
