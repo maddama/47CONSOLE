@@ -282,3 +282,8 @@ Traceback (most recent call last):
   File "C:\ProgramData\Anaconda3\lib\site-packages\anaconda_navigator\exceptions.py", line 72, in exception_handler
  ### 需要处理以下这个hostname的问题
 
+![Alt text](pic/1681263767117.jpg)
+学术chat这个问题应该还是没有配置proxy导致的
+![Alt text](pic/1681263929394.jpg)
+不是代理导致的，还是容器的问题，这个包那个包已经全部乱了，啊啊啊啊
+网速不好别玩需要pip和conda的东西。。。很容易梯子崩掉之后啥也玩不了还要花很多时间debug
