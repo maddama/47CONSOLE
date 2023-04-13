@@ -260,9 +260,11 @@ siglesided会浪费很多磁通，如果使用double可以都兜住
 
 别用win+shift+s截图了，出来的是png
 
+```
 Relative Permeability（相对磁导率）：相对磁导率是材料在存在磁场时的磁导率与真空中磁场的比值，是描述材料磁性的重要参数。N36Z_23的相对磁导率可能比较高，表示它在磁场中容易被磁化。
 Bulk Conductivity（体导率）：体导率是指材料对电流的导电性能。N36Z_23的体导率可能较低，因为铁氧体材料通常为绝缘材料，不会很好地传导电流。
 Magnetic Coercivity（磁饱和磁场强度）：磁饱和磁场强度是材料在磁化过程中需要的最大磁场强度，通常用于描述材料的磁性，但与相对磁导率不同，它与材料的饱和磁化强度有关。N36Z_23的磁饱和磁场强度可能比较高，表示它可以容纳更多的磁通量，但这并不一定意味着它具有较强的磁性能力。
+```
 
 **Wednesday, April 12, 2023 @ 09:28:08 AM**
 
@@ -287,3 +289,75 @@ Traceback (most recent call last):
 ![Alt text](pic/1681263929394.jpg)
 不是代理导致的，还是容器的问题，这个包那个包已经全部乱了，啊啊啊啊
 网速不好别玩需要pip和conda的东西。。。很容易梯子崩掉之后啥也玩不了还要花很多时间debug
+
+**Wednesday, April 12, 2023 @ 10:35:53 AM**
+
+学习nx制图2d流程，prt部件和菜单里面开始建模和制图并不冲突
+放到整个视图的左上角可以移动视图，多等一会等他提示就行
+尽量不要点到线。。不然拖不动的
+明确目标，大致复现一下基座磁钢压块.prt
+*如何实现在siemens nx制图中编辑公差？*
+直接双击就能得到，不要再annotation里面搞,出现0的就是单向公差
+*在Siemens nx制图中快速调整字体大小？*
+
+**Wednesday, April 12, 2023 @ 11:32:41 AM**
+
+尝试使用anaconda navigator创建环境
+ environment location: C:\Users\siqip\.conda\envs\your-env-name
+ 成了，要激活就是conda activate your-env-name即可，好强啊，太棒了，记得断掉代理
+
+**Wednesday, April 12, 2023 @ 02:42:45 PM**
+
+*如何使用Siemens Nx选择更大的箭头？*
+![Alt text](pic/1681282325938.jpg)
+尽量多的使用菜单，一般preference都在这里面，不要习惯性选择文件去找东西
+![Alt text](pic/1681282541375.jpg)
+还是没成啊，好烦，这个偏好感觉还是重启才能有效
+
+```
+Traceback (most recent call last):
+  File "C:\Users\siqip\ACMOP\codes3\acmop.py", line 4, in <module>
+    import os, json, acm_designer, bearingless_spmsm_design, vernier_motor_design, bearingless_induction_design
+  File "C:\Users\siqip\ACMOP\codes3\acm_designer.py", line 5, in <module>
+    import population, FEMM_Solver, pyrhonen_procedure_as_function
+  File "C:\Users\siqip\ACMOP\codes3\population.py", line 16, in <module>
+    import FEMM_Solver
+  File "C:\Users\siqip\ACMOP\codes3\FEMM_Solver.py", line 23, in <module>
+    import winding_layout
+  File "C:\Users\siqip\ACMOP\codes3\winding_layout.py", line 571, in <module>
+    import scipy.integrate as integrate
+ModuleNotFoundError: No module named 'scipy'
+```
+
+感觉需要用虚拟环境打开code进行调试
+activate之后直接用code命令即可
+cd..可以返回文件上一层cmd
+
+```
+在Python中，init.py文件主要用于标识一个包（package），它通常是一个空文件，用于告诉Python解释器这个目录是一个Python包，该目录中的模块可以被导入到其他模块中。当用户使用import语句导入整个包时，该文件将首先被执行。
+一些常见的任务，可以在__init__.py文件中执行，例如：
+初始化包级别的变量：例如在包中定义一些常量，也可以在该文件中初始化它们。
+定义__all__变量：在__init__.py文件中，您可以定义__all__变量，用于指定其他模块可导入的公共接口。
+支持动态导入：在某些情况下，您可能需要动态导入模块，例如，基于某些条件或用户输入导入不同的模块。在__init__.py文件中，您可以编写代码来动态导入模块。
+```
+```  
+File "C:\Users\siqip\ACMOP\codes3\FEMM_SlidingMesh.py", line 1222, in parallel_solve_transient_FEA
+    raise Exception('Subprocess failed to execute.')
+```
+在命令行直接跑更快，用code打开很慢。但是报了同样的错误
+
+```
+2023-04-12 15:46:35,644 - bearingless_spmsm_design - WARNING - [Warning from bearingless_spmsm_design.py]: Inter-pole notch depth mm_d_rp cannot be larger than mm_d_pm or else the sleeve cannot really hold or even touch the PM. So mm_d_rp is set to mm_d_pm.
+2023-04-12 15:46:35,644 - bearingless_spmsm_design - WARNING - [Warning from bearingless_spmsm_design.py]: deg_alpha_rs cannot be larger than deg_alpha_rm/s. Note deg_alpha_rs is set to deg_alpha_rm/s.
+
+```
+
+这段日志包含了两条WARNING级别的警告消息。开发者想要告诉你的是在电机设计程序中存在两个参数，如果设置不正确，可能会导致电机无法正常工作，因此需要注意检查这些参数的设置。
+第一条警告消息涉及到Inter-pole notch depth mm_d_rp参数，程序检查该参数是否大于mm_d_pm参数。如果mm_d_rp大于mm_d_pm，将会导致套管不能很好地承载或接触永磁体。因此，程序将mm_d_rp参数设为mm_d_pm，以确保电机能够正常工作。
+第二条警告消息涉及到deg_alpha_rs参数，该参数不能大于deg_alpha_rm/s参数。如果deg_alpha_rs大于deg_alpha_rm/s，将会导致电机无法正常工作(不推荐设置这些参数不一致)。因此，程序将deg_alpha_rs参数设为deg_alpha_rm/s，以确保电机能够正常工作。
+
+
+**Wednesday, April 12, 2023 @ 05:04:26 PM**
+
+制图>绘制中心线>选中视图，在菜单栏中选择“Insert” > “Centerline”里面寻找命令
+plot mesh这个问题还是没解决，唉，看了还是得自己啃这个文档
