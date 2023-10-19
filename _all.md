@@ -1811,4 +1811,77 @@ Friday, October 13, 2023 @ 11:32:54 AM
 积累一些文献吧，找到一篇中车分公司的人
 
 Tuesday, October 17, 2023 @ 09:36:00 AM
-安装pscad，然后把单线棒的模型建一下，首先看到半导体的热反应
+安装pscad，然后把单线棒的模型建一下，首先看到半导体的热反应。
+Tuesday, October 17, 2023 @ 02:47:37 PM
+装完了pscad，开始学一个例子，这软件中文文本较少，准备intense的英文阅读
+
+新建路之后在左下角找component wizard用来建传输线，除了传输线之外的元件大部分都可以从main中复制
+例子建立完了，主要是示波器稍微有点麻烦，要重新记录一下步骤
+现在看看谢菲那个印度人怎么处理的，刘平的也试试能不能复现
+首先在meters里面选一个voltmeter to ground接在导线上
+之后在IO devices里面选一个output channel
+再选一个data 里面的data label，用data label设置和 IO相连
+之后找一个 graph里面的graph pane出来，add overlay graph（analog）
+右键IO，add as curve，在pane左边右键paste curve即可
+可run
+
+Tuesday, October 17, 2023 @ 03:35:07 PM
+![](2023-10-17-15-35-19.png)
+能处理的最大单元应该就是这个了，要么使用comsol里面自带的线圈来赋电压或者借助spice创建的电路，用电压的连接来简化模型，不然跑起来的概率实在是比较低，动脑简化计算量。
+线圈文档一般比较难懂，估计还是要用电感器那个例子里面，但是他是整块线圈，我需要仿真的是部分线圈
+
+一些建模的小技巧，在几何中添加union联合体或者删除实体可以使得一个部件中域的个数减少，以免几何变动之后重新选择多个域，同样，也可以保留交叉的边界，但是我感觉要去掉，之前出的几个问题都在边界上
+试验一下去除掉我的模型中的边界，看看是否会减少网格点报错
+使用线圈是不是都需要使用“磁场”中的线圈几何分析，那还是转而使用电路会比较好
+在有限元里面尽一切可能减少运算，最好直接是一个域的电压进去，其他都在pscad里面处理了，刘平最后是不是只做了二维的？
+
+**老师指示**
+*倒角，气泡做二维*
+
+Wednesday, October 18, 2023 @ 03:01:22 PM
+目前需要做的就是把这个等效电路参数的求取方法学会，
+所在的文献是“何明鹏-永磁直驱”其实是刘平写的
+涉及长电缆的文献是4-5，涉及MTL多导体传输线的是6-8
+4-15都要看看标题，看看有没有能用的
+阶梯型RL是在16里面，宇宙万法的那个源头
+Calculation of stator winding parameters to predict the voltage distributions in inverter fed AC machines
+开始阅读本文Magdun，妈个蛋老师，靠你了
+和以前的模型不同，本文考虑了铁心效应以及它带来的涡流损耗
+应用了一个metal-oxide金属氧化物varistor压敏电阻模型
+“The occurring step voltage variations with the inverter switching frequency and high dv/dt due to the reflections at the motor terminals, almost twice the inverter DC link voltage in the worst case, are directly responsible for the winding insulation failures [2], [3].”
+这里就提到了两倍的结论，估计吴广宁也是引用了同一个结论
+改善的方法除了使用更牛逼的滤波器和新颖的拓扑结构就是使用我们的金属压敏电阻来改善端部电场分布，当然，这不能完全替代变频器端的改进，至少轴承电流是没法通过这种方法消除的。
+他的模型也是来自7-9，只是根据铁心结构进行了优化
+Thursday, October 19, 2023 @ 10:26:03 AM
+继续magdun-calculation
+截止频率cut off frequency
+fco=1/pi/tr(tr=trise反射波的上升时间)
+fmax=3fco≈1/tr
+namdaMin=vc/fmax≈vc*tr
+这里的vc指的是波速，在cable里面这个速度大概是150m/μs，但是在machine winding里面这个速度只有75m/μs，这是由于叠片铁心导致的，[10]这个结论也需要引用，当然7-9如果有更好的模型就好了，虽然我感觉刘平应该用的是sundeep的，但是时间有点对不上
+λmin = vc*tr = 75m/μs · 200ns = 15m
+Thursday, October 19, 2023 @ 10:52:33 AM
+这个模型用的还是用的散下线绕组，先放放，看看7-9
+![](2023-10-19-10-56-42.png)
+刘平的模型还不跟他完全一样，多并联了一个电容，好像何明鹏的文章中有说明这个电容是干嘛的，也算是他们的创新点吧，毕竟等效替代都是从实际模型出发的
+[7]就是suresh，已经回到1997的文献了，suresh是学生，注意看看toliyat的，有时间的话
+![](2023-10-19-11-10-48.png)
+suresh这里说了用maxwell 2d算的原理
+*The individual elements in the impedance matrix are computed as follows: The frequency for which the eddy current analysis has to be computed can be defined in the package. The simulator generates an eddy-current field solution for each conductor in the model. The first turn is set to 1 A current in the first solution with all the other turns set to zero current. In the second solution, only the second turn is set to 1 A current with all the other turns set to zero current. After each field solution, the inductance and resistance are computed using the following relations:*
+就是一个个设置成1A
+
+
+
+Thursday, October 19, 2023 @ 09:08:33 AM
+补充一些传输线基础知识
+![](2023-10-19-09-08-35.png)
+也称之为电报公式，移项把右边deltaz到左边就得到下方公式
+![](2023-10-19-09-09-48.png)
+两倍的结论就是传输线这里简单出来的吧
+![](2023-10-19-10-06-07.png)
+![](2023-10-19-10-06-51.png)
+只要不匹配就有反射,匹配就是零反射
+![](2023-10-19-10-09-20.png)
+
+
+
