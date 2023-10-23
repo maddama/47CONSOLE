@@ -1868,7 +1868,20 @@ Thursday, October 19, 2023 @ 10:52:33 AM
 ![](2023-10-19-11-10-48.png)
 suresh这里说了用maxwell 2d算的原理
 *The individual elements in the impedance matrix are computed as follows: The frequency for which the eddy current analysis has to be computed can be defined in the package. The simulator generates an eddy-current field solution for each conductor in the model. The first turn is set to 1 A current in the first solution with all the other turns set to zero current. In the second solution, only the second turn is set to 1 A current with all the other turns set to zero current. After each field solution, the inductance and resistance are computed using the following relations:*
-就是一个个设置成1A
+就是一个个设置成1A其他设置成0然后算相对电感电阻，当然现在的软件提供更丰富的算法，刘平那个就是直接生成的矩阵
+Thursday, October 19, 2023 @ 03:12:58 PM
+![](2023-10-19-15-12-53.png)
+感觉他的精度也不会高，最好还是在magdun或者sundeep那里找到公式，其他技术问题自己在comsol里面去试
+单根导体的自感用Lj,j表示
+第j和第k之间的互感使用Lj,k表示
+如果铁心视作理想导体的话，这些电感就提供了所有槽内的磁场
+那么每匝的电感Lslot，就是Ljk的求和，求和到nt
+他这里Nt=17
+![](2023-10-19-16-10-34.png)
+注意是散下线的不能照搬，需要考虑每匝的四根导体
+端部的电感认为是固定值Lovj
+
+明早9.30在艇员大楼218有讲座，裴教授，内容是关于新材料
 
 
 
@@ -1883,5 +1896,28 @@ Thursday, October 19, 2023 @ 09:08:33 AM
 只要不匹配就有反射,匹配就是零反射
 ![](2023-10-19-10-09-20.png)
 
+Thursday, October 19, 2023 @ 03:17:25 PM
+在刘平2023里面有提到
+*对于 SiC 防晕材料来说, 电导率与电场强度之间 呈非线性关系, 近似服从式(2)所示的函数:*
+σv=σ0*exp(βx|E|)也就是胡老师设置的只和电场模相关的半导体材料参数
+他这里把变频器端的实测波形直接输入进去然后跑二维也是可以的，但是他完全变成空间分布了，公式也都是comsol里面抄出来的控制公式，本文比他其他文章更水
 
+Monday, October 23, 2023 @ 09:20:05 AM
+抓紧先把二维的落实了，很简单，就是加密网格，之后变化圆角尺寸，验证一下绝缘结构的圆角是否没什么影响，之后讨论一下气泡（空洞）大小和所在位置的影响。
 
+电势大一般在四个角，所以最大电压的朝向还是有影响的，也可以做一下，有总比没有好
+复习一下，使用标记可以或者体最大值的三维坐标
+未倒圆角时的最大电场模位置及其大小
+![](2023-10-23-09-37-03.png)
+![](2023-10-23-09-37-51.png)
+倒圆角时的最大电场模位置及其大小
+![](2023-10-23-09-40-18.png)
+以上为使用图像快照生成的图片，是没有比例尺的，还是使用截图吧
+![](2023-10-23-09-41-52.png)
+![](2023-10-23-09-42-54.png)
+![](2023-10-23-09-43-53.png)
+右键研究即可添加参数扫描
+使用全部组合可以快速生成矩阵的参数
+参数扫描后处理，比如说选择一个体最大值，选择参数化解之后就会自动计算这些，之后在右下角的table处电机表格面图即可
+![](2023-10-23-10-12-47.png)
+出现问题，这是因为目前用的是二维的模型，只用了一个个参数，点击表图即可，三维二参数使用表格面图
