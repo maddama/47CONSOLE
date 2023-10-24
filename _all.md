@@ -1930,7 +1930,7 @@ Monday, October 23, 2023 @ 09:20:05 AM
 Monday, October 23, 2023 @ 03:06:14 PM
 圆角和气泡不要放在一个文件里面，之前沿用的参数模型和电压标签V1V2还有坐标啥的都会冲突
 
-仅仅是二维无法直接使用表格面图来展示气泡的电场模，要画出点之后进行标注
+仅仅是二维无法直接使用表格面图来展示气泡的电场模，要画出点之后进行标注？不对，感觉也是可以使用的，待会试试。要创建一个二维绘图组之后才可以画这个表格面图，之后可以在范围里选择data range
 ![](2023-10-23-15-31-27.png)
 ![](2023-10-23-15-32-15.png)
 只有这两个位置的气泡会影响最大电场强度分布，但是周围的场强分布如何？如果也是增大只是没有达到最大值依然对绝缘有不良影响
@@ -1941,3 +1941,9 @@ Monday, October 23, 2023 @ 03:06:14 PM
 为了避免特殊性，之前圆角半径的是否要对其他线规进行讨论，有没有可能不是一个单调的情况？
 今天依然先做一下好做的工作，继续讨论一下气泡大小带来的影响
 感觉这个气泡的位置也有点没选好，应该都全部选在红色区域，现在重新做一个参数扫描吧，注意看看ins_inturn的大小，r_bubble别搞太大了
+认识一下G fortran，“GNU Fortran is an implementation of the Fortran programming language in the GNU Compiler Collection, an open-source and free software project maintained in the open-source programmer community under the umbrella of the GNU Project. It is the successor to previous compiler versions in the suite, such as g77. ”就是一个GNU协议开源的fortran应用项目，fortran主要用于数值计算，pscad使用的G fortran95应该是面向过程的，fortran 98才支持面向对象，届时可以试试用gpt解释一部分pscad 中的fortran代码帮助理解分布参数电路建模
+![](2023-10-23-17-50-30.png)
+气泡大小和电场模的关系，随着气泡的增大，电场在绝缘结构中的分布就更加不均匀，所以最大的电场模会随之增大。
+
+Tuesday, October 24, 2023 @ 09:06:28 AM
+容易工作都做了，现在只能继续看看分布参数电路了
