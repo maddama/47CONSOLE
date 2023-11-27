@@ -2116,3 +2116,43 @@ Friday, November 17, 2023 @ 02:34:31 PM
 找不到源。
  - 研究步骤: 稳态源扫描 {stssw}“
 频域无法使用稳态源扫描，现在能想到的办法就是自己一个个设置全部算出来统计到表格里面，在这么做之前，首先看看数量级和刘枰的结果差多少
+
+Tuesday, November 21, 2023 @ 03:42:03 PM
+做simplorer仿真的时候首先需要把右边的component拉出来，没有则在view里面勾选一下显示，不然一切免谈
+目前需要进行的工作：1.建立单槽的模型用来提取参数2.建立整个的模型用来做电感。首先找出来96slots的图纸来搭建模型
+
+spl模型不要把那个TR之类的删掉了，这是用来设置spl仿真的，就是不知道会不会影响提取出netlist，在twin builder里面选择solution setup可以把这个瞬态设置的东西给找回来
+
+Tuesday, November 21, 2023 @ 04:57:54 PM
+完成：2.学会simplorer（不需要学太深，只要使用winding就可以实现连接）
+
+不使用导入netlist使用联合仿真需要在maxwell3D中选择design setting之后在advance product coupling里面勾选使用twin builder，才能使用联合仿真
+
+VHDLAMS代表VHDL (VHSIC Hardware Description Language) Analog and Mixed-Signal。它是一种语言，用于描述模拟和混合信号电路，并在仿真和验证过程中使用。这东西表示的是模拟信号
+![](2023-11-21-17-59-20.png)
+通过这种方式可以把maxwell模型加进来
+加进来是一个块块，之前osu那边应该也是这样做的。
+
+Wednesday, November 22, 2023 @ 10:01:09 AM
+rmxprt中提供的都是core，需要找定子就用slotcore然后调转一下
+![](2023-11-22-11-03-49.png)
+在这里设置矩阵之后进入solution data里面找到
+![](2023-11-22-11-04-43.png)
+即可完成电容参数的提取
+
+Sunday, November 26, 2023 @ 08:44:45 PM
+aedt启动不了，报错是有ansysli.md之类的需要重置，重启然后搞ansys license server
+Monday, November 27, 2023 @ 09:25:34 AM
+阅读一下jinx关于pdiv的文章https://zhuanlan.zhihu.com/p/416086886
+什么是电压的单双极性（只有正电压（或负）的就是单极性）±都有的就是双极性
+MMC指的是modular multilevel converter，模块化多电平变换器
+日本的PEEK（聚醚醚酮）线性能更好但是贵很多
+“三层结构属于漆包线的行业标准了，大家都在用这样一种制程或者这样的漆膜结构，有三层有四层的，基本上就是一层打底，中间用耐电晕PI，还有低介电PI降低它的介电常数，最后在面漆上一层改性耐油水的PI去过耐油实验。”
+这里的PI指的是polimide就是聚酰亚胺
+佳腾电业https://www.sohu.com/a/695730251_100072557
+博格华纳开始使用了连续波绕组这一个绕组形式，之前都是使用的i-pin或者hair-pin，就是单根焊接两头和双根焊接一头，连续波绕组相对于这两兄弟来说可以减少焊点，但是会产生其他的问题;
+（1） 绕组支路不对称，导致反电势、电阻、电感存在差异，降低电机性能，同时绕组环流将增加电机的附加损耗，导致电机局部过热。
+（2） 电机绕组排布困难，容易发生交叠，难以放进定子槽。
+（3） 当波绕组的跨距不同时，制作过程复杂，模具投入成本高，生产难度大。
+https://patentscope.wipo.int/search/zh/detail.jsf?docId=WO2019233041
+关于绕线的其他信息https://www.trueplusmedia.com/cms/800V/149.html
