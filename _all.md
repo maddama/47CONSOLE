@@ -2146,6 +2146,12 @@ Monday, November 27, 2023 @ 09:25:34 AM
 阅读一下jinx关于pdiv的文章https://zhuanlan.zhihu.com/p/416086886
 什么是电压的单双极性（只有正电压（或负）的就是单极性）±都有的就是双极性
 MMC指的是modular multilevel converter，模块化多电平变换器
+https://patentimages.storage.googleapis.com/e4/c8/64/ff021026490f35/US20140354394A1.pdf
+通过降低介电常数来打到均衡电场的作用
+“[0008]As another method to improve the partial dischargeinception voltage ofthe insulated wire, a resin low in dielectric constant is used in the insulating film. However, such ause of the resin low in the dielectric constant is difficult.because the resin is usually low in a surface free energy andpoor in the adhesion with the conductor."
+![](2023-11-27-11-07-13.png)
+通过分割绞合线的方式降低扁线内部的电阻，能够避免由于靠近气隙的B更大导致的涡流损耗分布不均匀的问题，缺点是端部扭转会散开，只能只用焊接的方法
+![](2023-11-27-11-12-07.png)
 日本的PEEK（聚醚醚酮）线性能更好但是贵很多
 “三层结构属于漆包线的行业标准了，大家都在用这样一种制程或者这样的漆膜结构，有三层有四层的，基本上就是一层打底，中间用耐电晕PI，还有低介电PI降低它的介电常数，最后在面漆上一层改性耐油水的PI去过耐油实验。”
 这里的PI指的是polimide就是聚酰亚胺
@@ -2156,3 +2162,88 @@ MMC指的是modular multilevel converter，模块化多电平变换器
 （3） 当波绕组的跨距不同时，制作过程复杂，模具投入成本高，生产难度大。
 https://patentscope.wipo.int/search/zh/detail.jsf?docId=WO2019233041
 关于绕线的其他信息https://www.trueplusmedia.com/cms/800V/149.html
+巴申曲线和流柱理论https://zhuanlan.zhihu.com/p/446325601
+巴申曲线就是V-pd曲线，先下降后升高，（在电机中一般在曲线的右侧，也就是高海拔有更高的爬电距离，时间上比汤森早但是汤森可以解释它所以先学的汤森。
+https://zhuanlan.zhihu.com/p/446937936
+气泡电压线的缺点
+“回到前文所描述，塑料击穿强度是空气的几倍，通过增加空气虽能提高PDIV，但本身的击穿强度是降低的，同时机械强度也是降低的，特别是在电磁线折弯处。
+正常绝缘材料内部出现气泡本身就是一个缺陷，会引起巨大的绝缘失效风险。但气泡漆包线的设计就犹如火中取栗，单从这个角度来说，就可以知道气泡漆包线的难度之高。
+因此，虽然逻辑上气泡漆包线听起来原理很简单，但是实际却要考虑气泡比例、气泡大小、气泡均匀度、增加气泡后整体的击穿强度等等众多因数，复杂而精细。”
+开始绕线标号，用他的标记uwv，他的12是用来标记并联支路的，我们的标记用的是xyz代替的，双三相应该不会带来太多麻烦
+Tuesday, November 28, 2023 @ 11:04:17 AM
+在二维设计中尽量不要使用rmxprt模型给的corelenth，会变成三维solid处理起来会有麻烦，不如都做成片片
+没有pymaxwell现在，只有pyaedt但是要求aedt在2022版本以上。
+![](2023-11-29-10-10-59.png)
+skewed实例还有切片数
+![](2023-11-29-10-13-00.png)
+model depth只是用来scale出转矩、磁链、backEMF之类，不是建立出整个模型，就是个乘法。
+
+Thursday, November 30, 2023 @ 11:55:59 AM
+交直轴电感的求取方法
+
+idea：有没有可能通过电感矩阵反推dq再推回去看看控制对于绝缘的影响 ？
+有没有可能可以不要铁心直接靠绝缘部分  提取分布参数，会产生很大误差吗？
+为何不带转子是更严酷环境？找一下支持论据
+为何可以不考虑emit？能否用定子磁屏蔽解释？仅仅用hfss没有circuit也太牵强了，肯定有其他解释
+
+找一下为啥L(windingA,windingA)都输出不了的原因，看起来好像是运动设置有点问题，inner region一直没动直到最后突然移动到位置，是因为场的保存的问题吗？
+看其他的magB之类的没有问题，是不是轴向长度没有设置？
+
+Thursday, November 30, 2023 @ 04:16:18 PM
+交直轴电感计算使用增量电感，设置为incremental，上列的apparent是视在电感，这两种计算方法的差异是
+![](2023-11-30-16-17-21.png)
+*我们还能碰到增量电感(intremental inductance)和视在电感(apparent inductance)的概念。
+增量电感是：Lz=N dφ/di，增量电感的意思就是某个确定的电流附近做微小变化时，电感可以看做不变，就是一个固定的值，它可以推导如下：
+Ndφ=d(L*i)=dL*i+di*L=L*di，L=N*dφ/di，Lz=N dφ/di
+而视在电感就是在某个确定的电流下，磁通和这个电流的关系：Ls=N*φ/i
+它的意义在于计算磁场储能：W=1/2* Ls*i^2*
+https://zhuanlan.zhihu.com/p/666315554
+公式法计算电感，感觉需要修改他的公式，目前误差比较大
+![](2023-11-30-16-42-30.png)
+使用maxwell自带的方法对DQ电感进行计算的方法/电感计算/dq轴电感
+师兄认为冻结磁导率的方法相对过时，目前已经不再使用
+
+Monday, December 11, 2023 @ 09:52:31 AM
+Error when serializing reference to: ResultFeatureList (feature) [D] in /result/export/anim1/plot: PropValuePrim
+之前怀疑是破解的有问题，其实是anime（导出中的动画）出现了问题导致保存不了
+
+“无法计算表达式。
+未定义变量。- 变量: V- 几何: geom1域: 63无法计算表达式。- 表达式: V- 绘图: 表面 1 fsurf1]”
+
+Wednesday, December 13, 2023 @ 11:42:50 AM
+coupling script目前是我的主力模型，不要搞丢了，场路耦合try副本缺少edb暂时无法运行
+
+"使用快捷键 Ctrl + H 或点击菜单栏的 "编辑" -> "查找和替换" 打开查找替换面板。
+在查找框中输入 #.*，这是一个正则表达式，表示匹配每行中 # 号后面的所有内容。
+在替换框中留空，即不输入任何内容。
+点击替换面板右侧的三个垂直点按钮 ...，然后选择 "正则表达式" 选项。"
+批量删除注释的手段
+
+Thursday, December 14, 2023 @ 03:16:08 PM
+![](2023-12-14-15-16-11.png)
+直接用create external生成的winding并不严格按照名称，目前两种解决方法：从头开始运行脚本warp使得名称统一，或者写一个脚本用来生成winding
+倾向于使用后者，首先是前者结果无法预料，其次是生成出来也是纵向排布，连线时候模型的可读性非常差
+
+试了一下，id可以从1开始，对编码来说比较有利
+
+Friday, December 15, 2023 @ 02:42:55 PM
+微波的频段是300M到300GHz，波长大概是1m到0.001m，和我们所接触的应该差不多
+特性阻抗的意义![](2023-12-15-15-30-12.png)
+这个单位是有意义的，单位就是欧姆，如：50欧姆的传输线，指的是Zc=50
+传播常数![](2023-12-15-15-34-18.png)![](2023-12-15-15-34-59.png)
+这里beta指代的是相位变化的速度，alpha指代的是幅度变化的速度
+![](2023-12-15-16-13-14.png)
+阻抗不匹配的原理，在线上满足Zc，在负载需要满足Zl，所以Zl部分需要满足Zl=Ul/IL=(U++U-)/(I+-I-)
+![](2023-12-15-16-17-07.png)
+输入阻抗的定义
+特性阻抗和位置z没有关系，但是输入阻抗和位置z相关
+![](2023-12-15-16-27-51.png)
+![](2023-12-15-16-28-35.png)
+反射系数，一般默认为电压反射系数，也是位置相关的系数
+![](2023-12-15-16-31-30.png)
+反射系数和输入阻抗一一对应，关系是Zin=Zc(1+gama)/(1-gama),或者有负载处的反射系数gamal=(Zl-Zo)/(Zl+Z0)
+用Z0,Zl加上位置可以唯一确定一个Zin，Zin和gama可以互相唯一确定
+![](2023-12-15-17-05-58.png)
+![](2023-12-15-17-08-57.png)
+接不同负载时的几种不同工作状态
+微波技术中很多都是处理的无损线，Z0Zc混用的现象比较多，之后学习要注意区分一下
