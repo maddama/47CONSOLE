@@ -1,0 +1,1017 @@
+* 12062;MaxCir8.ckt
+* Project: C:/Program Files/weixincache/WeChat Files/wxid_63s4trglmomy21/FileStorage/File/2024-05/coupling4399.aedt
+* Design: MaxCir8
+
+*BeginParamDef
+.PARAM $C1=2.70424e-10
+.PARAM $C2=1.6889e-10
+.PARAM $C3=2.43364e-10
+.PARAM $C4=2.4409e-10
+.PARAM $C5=2.05645e-10
+.PARAM $C6=5.19576e-10
+.PARAM $C7=9.25e-12
+.PARAM $C8=5.194e-10
+.PARAM $R1=0.000114
+.PARAM $L1=5e-17
+.PARAM $U=1000
+.PARAM $Tr=1e-07
+.PARAM $Tf=1e-07
+.PARAM $R2=10
+.PARAM $L2=4e-06
+.PARAM $C2g=2e-09
+*EndParamDef
+
+.EXPRESSION $Rc='$R2'
+.EXPRESSION $Lc='$L2'
+.EXPRESSION $Cc='$C2g'
+
+*begin toplevel circuit
+C10087 net_235 net_236 '$C6' 
+C10053 net_211 GND '$C2' 
+L10066 net_187 net_233 '$L1' 
+R10075 net_207 net_189 '$R1'
+C10048 net_230 GND '$C2' 
+R10055 net_231 net_185 '$R1'
+C10063 net_213 GND '$C2' 
+LU1_91a net_213 net_205 1 Winding
+LU1_92a net_233 net_206 1 Winding
+LU1_93a net_234 net_207 1 Winding
+C10058 net_212 GND '$C2' 
+L10056 net_185 net_212 '$L1' 
+LU1_90a net_212 net_232 1 Winding
+R10060 net_232 net_186 '$R1'
+R10080 net_208 net_190 '$R1'
+C10047 net_228 net_182 '$C6' 
+C10077 net_233 net_234 '$C6' 
+C10094 net_236 7.4 '$C6' 
+R10065 net_205 net_187 '$R1'
+R10040 net_229 net_181 '$R1'
+C10062 net_211 net_212 '$C8' 
+R10070 net_206 net_188 '$R1'
+R10085 net_209 net_191 '$R1'
+L10076 net_189 net_235 '$L1' 
+C10082 net_234 net_235 '$C8' 
+L10051 net_184 net_211 '$L1' 
+C10073 net_234 GND '$C2' 
+C10067 net_212 net_213 '$C6' 
+LU1_94a net_235 net_208 1 Winding
+LU1_95a net_236 net_209 1 Winding
+LU1_88a net_230 net_223 1 Winding
+C10043 net_182 GND '$C3' 
+R10050 net_223 net_184 '$R1'
+C10057 net_230 net_211 '$C6' 
+LU1_96a 7.4 net_210 1 Winding
+R10090 net_210 net_192 '$R1'
+L10081 net_190 net_236 '$L1' 
+C10083 net_236 GND '$C2' 
+C10092 0 GND '$C1' 
+C11056 net_574 0 '$C2g' 
+L10041 net_181 net_182 '$L1' 
+C10078 net_235 GND '$C2' 
+LU1_86a net_228 net_229 1 Winding
+C10052 net_182 net_230 '$C8' 
+L10046 net_183 net_230 '$L1' 
+C10042 net_227 net_228 '$C7' 
+R10045 net_204 net_183 '$R1'
+LU1_89a net_211 net_231 1 Winding
+C10068 net_233 GND '$C2' 
+L10071 net_188 net_234 '$L1' 
+LU1_87a net_182 net_204 1 Winding
+C10072 net_213 net_233 '$C8' 
+L10086 net_191 7.4 '$L1' 
+L10061 net_186 net_213 '$L1' 
+L10091 net_192 0 '$L1' 
+C10093 net_524 net_227 '$C7' 
+C11053 net_518 0 '$C2g' 
+V11052 net_515 0 PULSE (0 1000 6e-08 '$Tr' '$Tf' 2.341e-06 6e-06) 
+L11054 net_861 net_518 '$L2' 
+R11055 net_515 net_861 '$R2'
+L11057 net_517 net_574 '$L2' 
+C10088 7.4 GND '$C5' 
+R11058 net_518 net_517 '$R2'
+LX1_1a net_574 net_71 1 Winding
+R11569 net_266 net_243 '$R1'
+R11574 net_267 net_244 '$R1'
+C11576 net_287 net_291 '$C8' 
+L11555 net_240 net_282 '$L1' 
+C11577 net_284 GND '$C2' 
+L11575 net_244 net_284 '$L1' 
+L11537 net_214 net_289 '$L1' 
+C11556 net_285 net_286 '$C8' 
+LX1_10a net_284 net_268 1 Winding
+LX1_4a net_285 net_262 1 Winding
+R11554 net_263 net_240 '$R1'
+C11572 net_291 GND '$C2' 
+LX1_2a net_289 net_293 1 Winding
+C11542 net_292 GND '$C5' 
+C11551 net_292 net_285 '$C6' 
+C11546 net_289 net_292 '$C8' 
+LX1_3a net_292 net_261 1 Winding
+L11545 net_238 net_285 '$L1' 
+C11547 net_285 GND '$C2' 
+C11557 net_282 GND '$C2' 
+C11538 net_289 GND '$C1' 
+R11559 net_264 net_241 '$R1'
+C11562 net_283 GND '$C2' 
+LX1_5a net_286 net_263 1 Winding
+C11567 net_287 GND '$C2' 
+LX1_8a net_287 net_266 1 Winding
+L11570 net_243 net_291 '$L1' 
+R11540 net_293 net_237 '$R1'
+C11561 net_286 net_282 '$C6' 
+C11571 net_283 net_287 '$C6' 
+LX1_6a net_282 net_264 1 Winding
+R11536 net_71 net_214 '$R1'
+R11544 net_261 net_238 '$R1'
+L11550 net_239 net_286 '$L1' 
+L11560 net_241 net_283 '$L1' 
+LX1_7a net_283 net_265 1 Winding
+L11541 net_237 net_292 '$L1' 
+C11566 net_282 net_283 '$C8' 
+LX1_9a net_291 net_267 1 Winding
+L11565 net_242 net_287 '$L1' 
+R11549 net_262 net_239 '$R1'
+C11552 net_286 GND '$C2' 
+R11564 net_265 net_242 '$R1'
+L11655 net_305 net_358 '$L1' 
+C11625 net_280 net_281 '$C6' 
+C11635 net_300 net_301 '$C6' 
+C11651 net_519 net_294 '$C7' 
+C11652 net_303 7.5 '$C6' 
+C11646 7.5 GND '$C5' 
+L11649 net_260 net_513 '$L1' 
+L11659 net_306 net_361 '$L1' 
+L11634 net_257 net_302 '$L1' 
+R11643 net_277 net_259 '$R1'
+LX1_24a 7.5 net_278 1 Winding
+LX1_31a net_352 net_334 1 Winding
+R11682 net_334 net_311 '$R1'
+LX1_22a net_302 net_276 1 Winding
+C11640 net_301 net_302 '$C8' 
+L11683 net_311 net_356 '$L1' 
+C11684 net_351 net_352 '$C8' 
+C11685 net_356 GND '$C2' 
+L11639 net_258 net_303 '$L1' 
+C11630 net_281 net_300 '$C8' 
+C11675 net_351 GND '$C2' 
+LX1_30a net_351 net_333 1 Winding
+C11656 net_358 GND '$C1' 
+L11668 net_308 net_355 '$L1' 
+L11673 net_309 net_351 '$L1' 
+R11623 net_273 net_255 '$R1'
+L11624 net_255 net_300 '$L1' 
+LX1_20a net_300 net_274 1 Winding
+R11633 net_275 net_257 '$R1'
+C11641 net_303 GND '$C2' 
+C11650 net_513 GND '$C1' 
+R11658 net_362 net_306 '$R1'
+L11644 net_259 7.5 '$L1' 
+LX1_19a net_281 net_273 1 Winding
+LX1_25a net_513 net_304 1 Winding
+C11660 net_361 GND '$C5' 
+C11626 net_300 GND '$C2' 
+R11638 net_276 net_258 '$R1'
+C11631 net_301 GND '$C2' 
+C11664 net_358 net_361 '$C8' 
+LX1_28a net_354 net_331 1 Winding
+L11663 net_307 net_354 '$L1' 
+LX1_21a net_301 net_275 1 Winding
+L11629 net_256 net_301 '$L1' 
+R11648 net_278 net_260 '$R1'
+R11662 net_330 net_307 '$R1'
+R11628 net_274 net_256 '$R1'
+C11636 net_302 GND '$C2' 
+LX1_26a net_358 net_362 1 Winding
+LX1_23a net_303 net_277 1 Winding
+C11645 net_302 net_303 '$C6' 
+R11654 net_304 net_305 '$R1'
+C11669 net_361 net_354 '$C6' 
+C11670 net_355 GND '$C2' 
+LX1_29a net_355 net_332 1 Winding
+LX1_27a net_361 net_330 1 Winding
+R11667 net_331 net_308 '$R1'
+R11672 net_332 net_309 '$R1'
+C11665 net_354 GND '$C2' 
+C11674 net_354 net_355 '$C8' 
+R11677 net_333 net_310 '$R1'
+L11678 net_310 net_352 '$L1' 
+C11679 net_355 net_351 '$C6' 
+C11680 net_352 GND '$C2' 
+C11596 net_295 GND '$C4' 
+L11595 net_248 net_295 '$L1' 
+R11598 net_296 net_249 '$R1'
+LX1_11a net_288 net_269 1 Winding
+LX1_16a net_297 net_290 1 Winding
+R11579 net_268 net_245 '$R1'
+L11599 net_249 net_250 '$L1' 
+L11609 net_252 net_279 '$L1' 
+C11610 net_250 net_297 '$C8' 
+C11600 net_294 net_295 '$C7' 
+R11603 net_272 net_251 '$R1'
+C11581 net_291 net_284 '$C6' 
+C11592 net_294 GND '$C3' 
+C11601 net_250 GND '$C3' 
+L11614 net_253 net_280 '$L1' 
+C11591 net_288 net_524 '$C8' 
+C11587 net_524 GND '$C3' 
+R11589 net_270 net_247 '$R1'
+R11584 net_269 net_246 '$R1'
+LX1_13a net_294 net_271 1 Winding
+C11586 net_284 net_288 '$C8' 
+R11594 net_271 net_248 '$R1'
+C11582 net_288 GND '$C2' 
+LX1_14a net_295 net_296 1 Winding
+LX1_15a net_250 net_272 1 Winding
+L11604 net_251 net_297 '$L1' 
+L11590 net_247 net_294 '$L1' 
+C11611 net_279 GND '$C2' 
+R11613 net_298 net_253 '$R1'
+L11585 net_246 net_524 '$L1' 
+C11615 net_297 net_279 '$C6' 
+LX1_18a net_280 net_299 1 Winding
+LX1_17a net_279 net_298 1 Winding
+R11618 net_299 net_254 '$R1'
+L11619 net_254 net_281 '$L1' 
+C11620 net_279 net_280 '$C8' 
+C11621 net_281 GND '$C2' 
+C11605 net_295 net_250 '$C6' 
+C11606 net_297 GND '$C2' 
+L11580 net_245 net_288 '$L1' 
+R11608 net_290 net_252 '$R1'
+C11616 net_280 GND '$C2' 
+LX1_12a net_524 net_270 1 Winding
+C11797 net_425 net_421 '$C6' 
+C11812 net_426 net_430 '$C8' 
+LX1_64a net_436 net_429 1 Winding
+L11845 net_390 net_417 '$L1' 
+C11847 net_417 GND '$C2' 
+R11849 net_437 net_391 '$R1'
+R11830 net_409 net_386 '$R1'
+LX1_63a net_388 net_410 1 Winding
+R11810 net_405 net_382 '$R1'
+R11854 net_438 net_392 '$R1'
+C11807 net_422 net_426 '$C6' 
+C11856 net_417 net_418 '$C8' 
+LX1_56a net_426 net_404 1 Winding
+L11796 net_379 net_422 '$L1' 
+C11813 net_423 GND '$C2' 
+R11820 net_407 net_384 '$R1'
+C11842 net_436 GND '$C2' 
+L11806 net_381 net_430 '$L1' 
+L11821 net_384 net_520 '$L1' 
+C11793 net_421 GND '$C2' 
+LX1_57a net_430 net_405 1 Winding
+LX1_58a net_423 net_406 1 Winding
+L11801 net_380 net_426 '$L1' 
+R11815 net_406 net_383 '$R1'
+C11817 net_430 net_423 '$C6' 
+LX1_59a net_427 net_407 1 Winding
+L11826 net_385 net_433 '$L1' 
+C11827 net_427 net_520 '$C8' 
+LX1_55a net_422 net_403 1 Winding
+LX1_54a net_421 net_402 1 Winding
+C11798 net_422 GND '$C2' 
+C11802 net_421 net_422 '$C8' 
+L11811 net_382 net_423 '$L1' 
+C11822 net_423 net_427 '$C8' 
+C11818 net_427 GND '$C2' 
+C11823 net_520 GND '$C3' 
+C11828 net_433 GND '$C3' 
+L11831 net_386 net_434 '$L1' 
+C11832 net_434 GND '$C4' 
+L11835 net_387 net_388 '$L1' 
+C11836 net_433 net_434 '$C7' 
+R11800 net_403 net_380 '$R1'
+R11805 net_404 net_381 '$R1'
+R11825 net_408 net_385 '$R1'
+LX1_62a net_434 net_435 1 Winding
+C11808 net_430 GND '$C2' 
+L11816 net_383 net_427 '$L1' 
+C11803 net_426 GND '$C2' 
+C11837 net_388 GND '$C3' 
+R11839 net_410 net_389 '$R1'
+L11840 net_389 net_436 '$L1' 
+R11795 net_402 net_379 '$R1'
+LX1_60a net_520 net_408 1 Winding
+LX1_61a net_433 net_409 1 Winding
+R11834 net_435 net_387 '$R1'
+C11841 net_434 net_388 '$C6' 
+R11844 net_429 net_390 '$R1'
+C11846 net_388 net_436 '$C8' 
+LX1_65a net_417 net_437 1 Winding
+L11850 net_391 net_418 '$L1' 
+C11851 net_436 net_417 '$C6' 
+C11852 net_418 GND '$C2' 
+LX1_66a net_418 net_438 1 Winding
+L11855 net_392 net_419 '$L1' 
+C11867 net_440 GND '$C2' 
+L11880 net_397 7.7 '$L1' 
+R11859 net_411 net_393 '$R1'
+C11862 net_439 GND '$C2' 
+C11882 7.7 GND '$C5' 
+LX1_72a 7.7 net_416 1 Winding
+L11885 net_398 net_420 '$L1' 
+L11891 net_444 net_498 '$L1' 
+R11884 net_416 net_398 '$R1'
+LX1_74a net_498 net_502 1 Winding
+R11894 net_502 net_445 '$R1'
+C11876 net_440 net_441 '$C8' 
+C11871 net_439 net_440 '$C6' 
+R11874 net_414 net_396 '$R1'
+LX1_69a net_440 net_413 1 Winding
+LX1_71a net_442 net_415 1 Winding
+L11895 net_445 net_501 '$L1' 
+C11866 net_419 net_439 '$C8' 
+R11890 net_443 net_444 '$R1'
+C11896 net_501 GND '$C5' 
+LX1_70a net_441 net_414 1 Winding
+C11881 net_441 net_442 '$C6' 
+LX1_75a net_501 net_469 1 Winding
+R11898 net_469 net_446 '$R1'
+C11886 net_420 GND '$C1' 
+C11888 net_442 7.7 '$C6' 
+C11877 net_442 GND '$C2' 
+LX1_73a net_420 net_443 1 Winding
+L11899 net_446 net_493 '$L1' 
+R11879 net_415 net_397 '$R1'
+C11892 net_498 GND '$C1' 
+L11860 net_393 net_439 '$L1' 
+R11864 net_412 net_394 '$R1'
+C11857 net_419 GND '$C2' 
+LX1_68a net_439 net_412 1 Winding
+C11872 net_441 GND '$C2' 
+C11887 net_521 net_433 '$C7' 
+LX1_67a net_419 net_411 1 Winding
+L11865 net_394 net_440 '$L1' 
+R11869 net_413 net_395 '$R1'
+C11861 net_418 net_419 '$C6' 
+L11870 net_395 net_441 '$L1' 
+L11875 net_396 net_442 '$L1' 
+LU1_9a net_952 net_599 1 Winding
+R9306 net_599 net_30 '$R1'
+L9307 net_30 net_535 '$L1' 
+C9308 net_664 net_952 '$C8' 
+LU1_8a net_664 net_593 1 Winding
+L9297 net_23 net_664 '$L1' 
+C9299 net_664 GND '$C2' 
+L9302 net_27 net_952 '$L1' 
+R9296 net_589 net_23 '$R1'
+C9298 net_522 net_531 '$C8' 
+R9301 net_593 net_27 '$R1'
+C9303 net_531 net_664 '$C6' 
+C9304 net_952 GND '$C2' 
+R9326 net_608 net_43 '$R1'
+L9327 net_43 net_737 '$L1' 
+C9324 net_734 GND '$C3' 
+L9317 net_37 net_607 '$L1' 
+LU1_11a net_709 net_605 1 Winding
+C9318 net_535 net_709 '$C8' 
+C9319 net_607 GND '$C3' 
+LU1_12a net_607 net_606 1 Winding
+L9322 net_40 net_734 '$L1' 
+R9316 net_605 net_37 '$R1'
+R9321 net_606 net_40 '$R1'
+C9323 net_709 net_607 '$C8' 
+LU1_13a net_734 net_608 1 Winding
+LU1_56a net_150 net_128 1 Winding
+C9621 net_96 7.2 '$C6' 
+C9900 net_150 net_154 '$C8' 
+R9903 net_130 net_107 '$R1'
+L9904 net_107 net_151 '$L1' 
+C9906 net_151 GND '$C2' 
+C9619 net_573 GND '$C1' 
+R9860 net_97 net_98 '$R1'
+C9862 net_152 GND '$C1' 
+LU1_50a net_152 net_156 1 Winding
+R9864 net_156 net_99 '$R1'
+C9885 net_149 net_145 '$C6' 
+LU1_55a net_146 net_127 1 Winding
+L9879 net_102 net_145 '$L1' 
+L9884 net_103 net_146 '$L1' 
+C9886 net_146 GND '$C2' 
+LU1_53a net_149 net_125 1 Winding
+R9883 net_126 net_103 '$R1'
+C9895 net_146 net_150 '$C6' 
+R9898 net_129 net_106 '$R1'
+L9899 net_106 net_147 '$L1' 
+LU1_58a net_147 net_130 1 Winding
+L9869 net_100 net_148 '$L1' 
+R9868 net_123 net_100 '$R1'
+C9881 net_145 GND '$C2' 
+LU1_51a net_155 net_123 1 Winding
+C9620 net_580 net_87 '$C7' 
+R9888 net_127 net_104 '$R1'
+L9865 net_99 net_155 '$L1' 
+C9876 net_149 GND '$C2' 
+C9891 net_150 GND '$C2' 
+LU1_52a net_148 net_124 1 Winding
+L9874 net_101 net_149 '$L1' 
+C9871 net_148 GND '$C2' 
+L9861 net_98 net_152 '$L1' 
+LU1_49a net_573 net_97 1 Winding
+C9866 net_155 GND '$C5' 
+C9890 net_145 net_146 '$C8' 
+R9893 net_128 net_105 '$R1'
+LU1_54a net_145 net_126 1 Winding
+C9870 net_152 net_155 '$C8' 
+L9889 net_104 net_150 '$L1' 
+L9894 net_105 net_154 '$L1' 
+C9875 net_155 net_148 '$C6' 
+C9880 net_148 net_149 '$C8' 
+C9896 net_154 GND '$C2' 
+LU1_57a net_154 net_129 1 Winding
+R9878 net_125 net_102 '$R1'
+L9618 net_38 net_573 '$L1' 
+C9901 net_147 GND '$C2' 
+C9905 net_154 net_147 '$C6' 
+R9617 net_65 net_38 '$R1'
+R9873 net_124 net_101 '$R1'
+C9293 net_662 net_522 '$C6' 
+R9286 net_579 net_16 '$R1'
+C9294 net_531 GND '$C2' 
+L9292 net_20 net_531 '$L1' 
+LU1_7a net_531 net_589 1 Winding
+LU1_5a net_662 net_579 1 Winding
+C9289 net_522 GND '$C2' 
+C9284 net_662 GND '$C2' 
+L9287 net_16 net_522 '$L1' 
+R9291 net_585 net_20 '$R1'
+C9288 net_633 net_662 '$C8' 
+C9283 net_958 net_633 '$C6' 
+LU1_6a net_522 net_585 1 Winding
+LU1_61a net_157 net_133 1 Winding
+R9913 net_132 net_109 '$R1'
+C9929 net_158 net_112 '$C6' 
+C9934 net_112 net_160 '$C8' 
+LU1_64a net_160 net_153 1 Winding
+LU1_66a net_142 net_162 1 Winding
+C9940 net_142 GND '$C2' 
+C9911 net_580 GND '$C3' 
+LU1_60a net_580 net_132 1 Winding
+L9919 net_110 net_158 '$L1' 
+L9923 net_111 net_112 '$L1' 
+R9918 net_133 net_110 '$R1'
+LU1_63a net_112 net_134 1 Winding
+R9927 net_134 net_113 '$R1'
+LU1_67a net_143 net_135 1 Winding
+C9949 net_142 net_143 '$C6' 
+R9952 net_136 net_118 '$R1'
+C9915 net_151 net_580 '$C8' 
+L9928 net_113 net_160 '$L1' 
+C9939 net_160 net_141 '$C6' 
+L9953 net_118 net_164 '$L1' 
+C9955 net_164 GND '$C2' 
+C9930 net_160 GND '$C2' 
+L9958 net_119 net_165 '$L1' 
+R9932 net_153 net_114 '$R1'
+C9945 net_143 GND '$C2' 
+L9943 net_116 net_143 '$L1' 
+R9937 net_161 net_115 '$R1'
+R9947 net_135 net_117 '$R1'
+LU1_62a net_158 net_159 1 Winding
+C9954 net_143 net_163 '$C8' 
+LU1_69a net_164 net_137 1 Winding
+L9948 net_117 net_163 '$L1' 
+LU1_65a net_141 net_161 1 Winding
+R9957 net_137 net_119 '$R1'
+C9959 net_163 net_164 '$C6' 
+L9909 net_108 net_580 '$L1' 
+R9908 net_131 net_108 '$R1'
+L9933 net_114 net_141 '$L1' 
+C9920 net_158 GND '$C4' 
+L9938 net_115 net_142 '$L1' 
+R9942 net_162 net_116 '$R1'
+LU1_59a net_151 net_131 1 Winding
+C9910 net_147 net_151 '$C8' 
+C9944 net_141 net_142 '$C8' 
+C9916 net_157 GND '$C3' 
+C9950 net_163 GND '$C2' 
+LU1_68a net_163 net_136 1 Winding
+C9935 net_141 GND '$C2' 
+L9914 net_109 net_157 '$L1' 
+R9922 net_159 net_111 '$R1'
+C9924 net_157 net_158 '$C7' 
+C9925 net_112 GND '$C3' 
+C9575 net_90 GND '$C2' 
+R9587 net_92 net_29 '$R1'
+C9574 net_88 net_24 '$C6' 
+R9567 net_89 net_22 '$R1'
+C9579 net_24 net_90 '$C8' 
+CU1_45a net_90 net_66 '$C6' 
+R9582 net_91 net_28 '$R1'
+R9597 net_59 net_32 '$R1'
+C9599 net_69 net_93 '$C8' 
+LU1_38a net_88 net_89 1 Winding
+C9600 net_94 GND '$C2' 
+L9578 net_26 net_66 '$L1' 
+LU1_44a net_93 net_59 1 Winding
+C9604 net_93 net_94 '$C6' 
+LU1_46a net_95 net_62 1 Winding
+C9610 net_96 GND '$C2' 
+LU1_47a net_96 net_63 1 Winding
+R9612 net_63 net_36 '$R1'
+C9615 7.2 GND '$C5' 
+L9568 net_22 net_24 '$L1' 
+C9594 net_68 net_69 '$C6' 
+LU1_48a 7.2 net_65 1 Winding
+C9614 net_95 net_96 '$C6' 
+R9607 net_62 net_35 '$R1'
+R9602 net_61 net_34 '$R1'
+L9573 net_25 net_90 '$L1' 
+C9609 net_94 net_95 '$C8' 
+LU1_41a net_66 net_91 1 Winding
+R9572 net_56 net_25 '$R1'
+C9585 net_68 GND '$C2' 
+LU1_43a net_69 net_58 1 Winding
+R9592 net_58 net_31 '$R1'
+L9588 net_29 net_69 '$L1' 
+C9605 net_95 GND '$C2' 
+L9583 net_28 net_68 '$L1' 
+C9565 net_88 GND '$C4' 
+L9603 net_34 net_95 '$L1' 
+C9590 net_69 GND '$C2' 
+C9589 net_66 net_68 '$C8' 
+L9613 net_36 7.2 '$L1' 
+L9598 net_32 net_94 '$L1' 
+L9608 net_35 net_96 '$L1' 
+L9593 net_31 net_93 '$L1' 
+C9570 net_24 GND '$C3' 
+LU1_39a net_24 net_56 1 Winding
+LU1_40a net_90 net_83 1 Winding
+R9577 net_83 net_26 '$R1'
+C9580 net_66 GND '$C2' 
+LU1_45a net_94 net_61 1 Winding
+C9595 net_93 GND '$C2' 
+L9564 net_21 net_88 '$L1' 
+C9569 net_87 net_88 '$C7' 
+LU1_42a net_68 net_92 1 Winding
+L9983 net_169 net_225 '$L1' 
+LU1_70a net_165 net_138 1 Winding
+R9962 net_138 net_120 '$R1'
+C9969 net_165 net_166 '$C6' 
+LU1_72a 7.3 net_140 1 Winding
+C9976 net_166 7.3 '$C6' 
+R9978 net_167 net_168 '$R1'
+L9979 net_168 net_222 '$L1' 
+C9980 net_222 GND '$C1' 
+C9975 net_583 net_157 '$C7' 
+C9984 net_225 GND '$C5' 
+LU1_74a net_222 net_226 1 Winding
+LU1_71a net_166 net_139 1 Winding
+C9970 7.3 GND '$C5' 
+L9963 net_120 net_166 '$L1' 
+R9972 net_140 net_122 '$R1'
+LU1_73a net_144 net_167 1 Winding
+LU1_75a net_225 net_193 1 Winding
+C9964 net_164 net_165 '$C8' 
+L9968 net_121 7.3 '$L1' 
+C9960 net_165 GND '$C2' 
+C9965 net_166 GND '$C2' 
+R9967 net_139 net_121 '$R1'
+L9973 net_122 net_144 '$L1' 
+C9974 net_144 GND '$C1' 
+R9982 net_226 net_169 '$R1'
+R9528 net_44 net_11 '$R1'
+C9535 net_72 net_73 '$C8' 
+CU1_33a net_79 GND '$C2' 
+LU1_29a net_78 net_42 1 Winding
+L9524 net_9 net_72 '$L1' 
+C9516 net_76 GND '$C2' 
+C9530 net_78 net_72 '$C6' 
+C9531 net_73 GND '$C2' 
+LU1_31a net_73 net_45 1 Winding
+LU1_32a net_79 net_46 1 Winding
+R9518 net_41 net_8 '$R1'
+R9513 net_39 net_7 '$R1'
+C9515 net_82 net_85 '$C8' 
+C9520 net_85 net_76 '$C6' 
+C9525 net_76 net_78 '$C8' 
+LU1_27a net_85 net_39 1 Winding
+L9514 net_7 net_76 '$L1' 
+L9519 net_8 net_78 '$L1' 
+C9521 net_78 GND '$C2' 
+C9526 net_72 GND '$C2' 
+R9523 net_42 net_9 '$R1'
+LU1_30a net_72 net_44 1 Winding
+R9533 net_45 net_12 '$R1'
+LU1_28a net_76 net_41 1 Winding
+L9529 net_11 net_73 '$L1' 
+L9534 net_12 net_79 '$L1' 
+LU1_35a net_80 net_52 1 Winding
+R9558 net_53 net_19 '$R1'
+CU1_38a net_577 GND '$C3' 
+L9559 net_19 net_87 '$L1' 
+R9548 net_51 net_17 '$R1'
+LU1_33a net_84 net_49 1 Winding
+CU1_34a net_73 net_79 '$C6' 
+L9549 net_17 net_80 '$L1' 
+R9543 net_49 net_15 '$R1'
+R9553 net_52 net_18 '$R1'
+LU1_36a net_577 net_53 1 Winding
+C9541 net_84 GND '$C2' 
+L9544 net_15 net_75 '$L1' 
+C9550 net_84 net_75 '$C6' 
+C9560 net_80 net_577 '$C8' 
+C9551 net_80 GND '$C2' 
+C9561 net_87 GND '$C3' 
+LU1_37a net_87 net_55 1 Winding
+R9563 net_55 net_21 '$R1'
+R9538 net_46 net_14 '$R1'
+L9539 net_14 net_84 '$L1' 
+LU1_34a net_75 net_51 1 Winding
+C9545 net_79 net_84 '$C8' 
+L9554 net_18 net_577 '$L1' 
+C9555 net_75 net_80 '$C8' 
+C9546 net_75 GND '$C2' 
+LU1_16a net_741 net_948 1 Winding
+C9337 net_737 net_48 '$C6' 
+LU1_14a net_737 net_739 1 Winding
+L9331 net_47 net_48 '$L1' 
+C9332 net_734 net_737 '$C7' 
+C9333 net_48 GND '$C3' 
+C9328 net_737 GND '$C4' 
+LU1_15a net_48 net_609 1 Winding
+C9338 net_741 GND '$C2' 
+R9340 net_948 net_54 '$R1'
+R9330 net_739 net_47 '$R1'
+R9335 net_609 net_50 '$R1'
+L9336 net_50 net_741 '$L1' 
+L9346 net_57 net_591 '$L1' 
+LU1_20a net_747 net_620 1 Winding
+C9343 net_584 GND '$C2' 
+R9350 net_744 net_60 '$R1'
+L9351 net_60 net_596 '$L1' 
+C9358 net_747 GND '$C2' 
+C9363 net_749 GND '$C2' 
+LU1_21a net_749 net_622 1 Winding
+R9365 net_622 net_70 '$R1'
+R9355 net_619 net_64 '$R1'
+C9362 net_596 net_747 '$C8' 
+L9366 net_70 net_752 '$L1' 
+R9345 net_743 net_57 '$R1'
+C9347 net_741 net_584 '$C6' 
+C9357 net_591 net_596 '$C6' 
+C9353 net_596 GND '$C2' 
+R9360 net_620 net_67 '$R1'
+L9361 net_67 net_749 '$L1' 
+L9356 net_64 net_747 '$L1' 
+LU1_18a net_591 net_744 1 Winding
+C9342 net_48 net_741 '$C8' 
+LU1_17a net_584 net_743 1 Winding
+L9341 net_54 net_584 '$L1' 
+C9348 net_591 GND '$C2' 
+C9352 net_584 net_591 '$C8' 
+LU1_19a net_596 net_619 1 Winding
+R9375 net_626 net_77 '$R1'
+C9377 net_752 net_755 '$C6' 
+L9506 net_4 net_82 '$L1' 
+R9370 net_623 net_74 '$R1'
+C9384 net_755 7.1 '$C6' 
+C9367 net_747 net_749 '$C6' 
+C9373 net_755 GND '$C2' 
+C9507 net_82 GND '$C1' 
+R9509 net_86 net_5 '$R1'
+LU1_24a 7.1 net_635 1 Winding
+L9381 net_81 net_572 '$L1' 
+C9383 net_577 net_734 '$C7' 
+LU1_26a net_82 net_86 1 Winding
+LU1_23a net_755 net_626 1 Winding
+L9376 net_77 7.1 '$L1' 
+C9511 net_85 GND '$C5' 
+R9380 net_635 net_81 '$R1'
+C9372 net_749 net_752 '$C8' 
+L9510 net_5 net_85 '$L1' 
+LU1_22a net_752 net_623 1 Winding
+C9382 net_572 GND '$C1' 
+C9368 net_752 GND '$C2' 
+LU1_25a net_572 net_1 1 Winding
+L9371 net_74 net_755 '$L1' 
+R9505 net_1 net_4 '$R1'
+C9378 7.1 GND '$C5' 
+C10029 net_583 GND '$C3' 
+R10031 net_202 net_179 '$R1'
+C10019 net_217 GND '$C2' 
+LU1_85a net_227 net_203 1 Winding
+L10002 net_173 net_216 '$L1' 
+C10024 net_221 GND '$C2' 
+L10037 net_180 net_228 '$L1' 
+C10013 net_216 net_220 '$C6' 
+C10038 net_228 GND '$C4' 
+LU1_79a net_216 net_197 1 Winding
+L10022 net_177 net_221 '$L1' 
+C10003 net_219 net_215 '$C6' 
+L10012 net_175 net_224 '$L1' 
+C9989 net_218 GND '$C2' 
+R10001 net_196 net_173 '$R1'
+L10007 net_174 net_220 '$L1' 
+LU1_82a net_217 net_200 1 Winding
+C9998 net_218 net_219 '$C8' 
+LU1_83a net_221 net_201 1 Winding
+C9988 net_222 net_225 '$C8' 
+R9991 net_194 net_171 '$R1'
+L9992 net_171 net_219 '$L1' 
+C9993 net_225 net_218 '$C6' 
+C10009 net_220 GND '$C2' 
+C10004 net_216 GND '$C2' 
+LU1_77a net_219 net_195 1 Winding
+L10017 net_176 net_217 '$L1' 
+R10021 net_200 net_177 '$R1'
+L10027 net_178 net_583 '$L1' 
+LU1_80a net_220 net_198 1 Winding
+C10028 net_217 net_221 '$C8' 
+LU1_78a net_215 net_196 1 Winding
+C10018 net_220 net_224 '$C8' 
+LU1_76a net_218 net_194 1 Winding
+C9999 net_215 GND '$C2' 
+C10023 net_224 net_217 '$C6' 
+R10011 net_198 net_175 '$R1'
+L10032 net_179 net_227 '$L1' 
+C10008 net_215 net_216 '$C8' 
+C10033 net_221 net_583 '$C8' 
+C10034 net_227 GND '$C3' 
+R10036 net_203 net_180 '$R1'
+LU1_81a net_224 net_199 1 Winding
+R9996 net_195 net_172 '$R1'
+C10014 net_224 GND '$C2' 
+L9997 net_172 net_215 '$L1' 
+R10006 net_197 net_174 '$R1'
+R10016 net_199 net_176 '$R1'
+L9987 net_170 net_218 '$L1' 
+R9986 net_193 net_170 '$R1'
+R10026 net_201 net_178 '$R1'
+LU1_84a net_583 net_202 1 Winding
+C9994 net_219 GND '$C2' 
+C11940 net_492 net_497 '$C8' 
+R11908 net_471 net_448 '$R1'
+R11918 net_473 net_450 '$R1'
+C11954 net_503 net_504 '$C7' 
+C11901 net_493 GND '$C2' 
+L11904 net_447 net_495 '$L1' 
+LX1_78a net_490 net_472 1 Winding
+R11923 net_474 net_451 '$R1'
+R11938 net_477 net_454 '$R1'
+LX1_77a net_495 net_471 1 Winding
+R11962 net_499 net_460 '$R1'
+L11963 net_460 net_487 '$L1' 
+C11926 net_500 GND '$C2' 
+R11903 net_470 net_447 '$R1'
+C11946 net_503 GND '$C3' 
+L11944 net_455 net_503 '$L1' 
+L11909 net_448 net_490 '$L1' 
+C11910 net_493 net_495 '$C8' 
+C11906 net_495 GND '$C2' 
+L11929 net_452 net_492 '$L1' 
+LX1_81a net_500 net_475 1 Winding
+L11924 net_451 net_500 '$L1' 
+R11933 net_476 net_453 '$R1'
+L11914 net_449 net_491 '$L1' 
+R11928 net_475 net_452 '$R1'
+LX1_82a net_492 net_476 1 Winding
+C11931 net_492 GND '$C2' 
+LX1_79a net_491 net_473 1 Winding
+L11934 net_453 net_497 '$L1' 
+C11935 net_500 net_492 '$C6' 
+LX1_83a net_497 net_477 1 Winding
+L11939 net_454 net_521 '$L1' 
+LX1_84a net_521 net_478 1 Winding
+L11919 net_450 net_496 '$L1' 
+C11900 net_498 net_501 '$C8' 
+C11920 net_490 net_491 '$C8' 
+C11925 net_491 net_496 '$C6' 
+R11943 net_478 net_455 '$R1'
+LX1_76a net_493 net_470 1 Winding
+C11936 net_497 GND '$C2' 
+C11945 net_497 net_521 '$C8' 
+R11948 net_479 net_456 '$R1'
+C11921 net_496 GND '$C2' 
+L11949 net_456 net_504 '$L1' 
+C11941 net_521 GND '$C3' 
+C11950 net_504 GND '$C4' 
+LX1_85a net_503 net_479 1 Winding
+C11911 net_490 GND '$C2' 
+C11915 net_495 net_490 '$C6' 
+C11916 net_491 GND '$C2' 
+C11905 net_501 net_493 '$C6' 
+R11913 net_472 net_449 '$R1'
+LX1_80a net_496 net_474 1 Winding
+C11930 net_496 net_500 '$C8' 
+LX1_86a net_504 net_505 1 Winding
+R11952 net_505 net_457 '$R1'
+L11953 net_457 net_458 '$L1' 
+C11955 net_458 GND '$C3' 
+LX1_87a net_458 net_480 1 Winding
+R11957 net_480 net_459 '$R1'
+L11958 net_459 net_506 '$L1' 
+C11959 net_504 net_458 '$C6' 
+C11960 net_506 GND '$C2' 
+LX1_88a net_506 net_499 1 Winding
+L11978 net_463 net_509 '$L1' 
+L11998 net_467 7.8 '$L1' 
+IU88G net_230 0 DC 0 
+.PRINT TRAN PROBE IU88G(t) V(IU88G)
+L11988 net_465 net_511 '$L1' 
+LX1_94a net_511 net_484 1 Winding
+R11977 net_481 net_463 '$R1'
+C12000 7.8 GND '$C5' 
+C12006 net_512 7.8 '$C6' 
+LX1_93a net_510 net_483 1 Winding
+LX1_96a 7.8 net_486 1 Winding
+IU11G net_709 0 DC 0 
+.PRINT TRAN PROBE IU11G(t) V(IU11G)
+IU86G net_228 0 DC 0 
+.PRINT TRAN PROBE IU86G(t) V(IU86G)
+LX1_90a net_488 net_508 1 Winding
+C11965 net_487 GND '$C2' 
+R11997 net_485 net_467 '$R1'
+C11980 net_509 GND '$C2' 
+R12002 net_486 net_468 '$R1'
+C11969 net_506 net_487 '$C6' 
+LX1_91a net_489 net_481 1 Winding
+C11999 net_511 net_512 '$C6' 
+L11973 net_462 net_489 '$L1' 
+L12003 net_468 0 '$L1' 
+IU1G net_718 0 DC 0 
+.PRINT TRAN PROBE IU1G(t) V(IU1G)
+C12004 0 GND '$C1' 
+C11995 net_512 GND '$C2' 
+C12005 net_607 net_503 '$C7' 
+L11993 net_466 net_512 '$L1' 
+LX1_92a net_509 net_482 1 Winding
+C11964 net_458 net_506 '$C8' 
+C11975 net_489 GND '$C2' 
+IU96G 7.4 0 DC 0 
+.PRINT TRAN PROBE IU96G(t) V(IU96G)
+IU94G net_235 0 DC 0 
+.PRINT TRAN PROBE IU94G(t) V(IU94G)
+IS1_12 net_718 net_633 DC 0 
+.PRINT TRAN PROBE IS1_12(t) V(IS1_12)
+IS1_34 net_522 net_664 DC 0 
+.PRINT TRAN PROBE IS1_34(t) V(IS1_34)
+C11970 net_488 GND '$C2' 
+LX1_89a net_487 net_507 1 Winding
+LUsta 0 GND 1 Winding
+IU90G net_212 0 DC 0 
+.PRINT TRAN PROBE IU90G(t) V(IU90G)
+IU3G net_633 0 DC 0 
+.PRINT TRAN PROBE IU3G(t) V(IU3G)
+L11983 net_464 net_510 '$L1' 
+R11987 net_483 net_465 '$R1'
+R11972 net_508 net_462 '$R1'
+C11979 net_488 net_489 '$C6' 
+L11968 net_461 net_488 '$L1' 
+C11985 net_510 GND '$C2' 
+R11992 net_484 net_466 '$R1'
+C11994 net_510 net_511 '$C8' 
+LX1_95a net_512 net_485 1 Winding
+C11984 net_489 net_509 '$C8' 
+R11967 net_507 net_461 '$R1'
+C11974 net_487 net_488 '$C8' 
+R11982 net_482 net_464 '$R1'
+C11990 net_511 GND '$C2' 
+C11989 net_509 net_510 '$C6' 
+IU92G net_233 0 DC 0 
+.PRINT TRAN PROBE IU92G(t) V(IU92G)
+IU5G net_522 0 DC 0 
+.PRINT TRAN PROBE IU5G(t) V(IU5G)
+IU7G net_664 0 DC 0 
+.PRINT TRAN PROBE IU7G(t) V(IU7G)
+IU9G net_535 0 DC 0 
+.PRINT TRAN PROBE IU9G(t) V(IU9G)
+IS1_23 net_633 net_522 DC 0 
+.PRINT TRAN PROBE IS1_23(t) V(IS1_23)
+IS1_45 net_664 net_535 DC 0 
+.PRINT TRAN PROBE IS1_45(t) V(IS1_45)
+IS1_56 net_535 net_709 DC 0 
+.PRINT TRAN PROBE IS1_56(t) V(IS1_56)
+R9311 net_602 net_33 '$R1'
+L9312 net_33 net_709 '$L1' 
+LU1_10a net_535 net_602 1 Winding
+C9313 net_952 net_535 '$C6' 
+C9314 net_709 GND '$C2' 
+C9309 net_535 GND '$C2' 
+R9268 net_2 net_3 '$R1'
+LU1_1a net_574 net_2 1 Winding
+L9269 net_3 net_718 '$L1' 
+C11714 net_364 GND '$C4' 
+C11734 net_349 GND '$C2' 
+R11736 net_368 net_323 '$R1'
+C11738 net_348 net_349 '$C8' 
+LX1_43a net_350 net_342 1 Winding
+L11742 net_324 net_369 '$L1' 
+C11744 net_369 GND '$C2' 
+LX1_34a net_353 net_337 1 Winding
+R11731 net_367 net_322 '$R1'
+C11729 net_348 GND '$C2' 
+CX1_25a net_370 GND '$C2' 
+LX1_35a net_357 net_338 1 Winding
+R11702 net_338 net_315 '$R1'
+LX1_41a net_348 net_367 1 Winding
+R11692 net_336 net_313 '$R1'
+L11693 net_313 net_353 '$L1' 
+C11689 net_352 net_356 '$C6' 
+C11705 net_519 GND '$C3' 
+C11710 net_363 GND '$C3' 
+L11713 net_317 net_364 '$L1' 
+C11719 net_319 GND '$C3' 
+R11721 net_341 net_320 '$R1'
+R11697 net_337 net_314 '$R1'
+C11709 net_357 net_519 '$C8' 
+L11708 net_316 net_363 '$L1' 
+LX1_39a net_319 net_341 1 Winding
+R11716 net_365 net_318 '$R1'
+LX1_33a net_360 net_336 1 Winding
+C11699 net_360 net_353 '$C6' 
+C11724 net_366 GND '$C2' 
+LX1_40a net_366 net_359 1 Winding
+R11726 net_359 net_321 '$R1'
+C11700 net_357 GND '$C2' 
+L11703 net_315 net_519 '$L1' 
+L11732 net_322 net_349 '$L1' 
+R11687 net_335 net_312 '$R1'
+L11688 net_312 net_360 '$L1' 
+C11690 net_360 GND '$C2' 
+C11704 net_353 net_357 '$C8' 
+LX1_38a net_364 net_365 1 Winding
+L11698 net_314 net_357 '$L1' 
+LX1_37a net_363 net_340 1 Winding
+L11717 net_318 net_319 '$L1' 
+L11722 net_320 net_366 '$L1' 
+C11694 net_356 net_360 '$C8' 
+R11712 net_340 net_317 '$R1'
+LX1_36a net_519 net_339 1 Winding
+L11727 net_321 net_348 '$L1' 
+LX1_32a net_356 net_335 1 Winding
+R11707 net_339 net_316 '$R1'
+C11695 net_353 GND '$C2' 
+C11718 net_363 net_364 '$C7' 
+C11723 net_364 net_319 '$C6' 
+C11728 net_319 net_366 '$C8' 
+C11733 net_366 net_348 '$C6' 
+LX1_42a net_349 net_368 1 Winding
+L11737 net_323 net_350 '$L1' 
+C11739 net_350 GND '$C2' 
+R11741 net_342 net_324 '$R1'
+C11743 net_349 net_350 '$C6' 
+LX1_44a net_369 net_343 1 Winding
+R11746 net_343 net_325 '$R1'
+L11747 net_325 net_370 '$L1' 
+C11748 net_350 net_369 '$C8' 
+C11778 net_431 GND '$C5' 
+C11770 net_372 7.6 '$C6' 
+LX1_50a net_428 net_432 1 Winding
+CX1_26a net_369 net_370 '$C6' 
+L11773 net_374 net_428 '$L1' 
+C11758 net_370 net_371 '$C8' 
+LX1_48a 7.6 net_347 1 Winding
+R11756 net_345 net_327 '$R1'
+C11774 net_428 GND '$C1' 
+C11783 net_424 GND '$C2' 
+LX1_47a net_372 net_346 1 Winding
+C11754 net_371 GND '$C2' 
+C11764 7.6 GND '$C5' 
+R11766 net_347 net_329 '$R1'
+C11769 net_520 net_363 '$C7' 
+LX1_49a net_514 net_373 1 Winding
+R11772 net_373 net_374 '$R1'
+LX1_51a net_431 net_399 1 Winding
+C11788 net_425 GND '$C2' 
+L11791 net_378 net_421 '$L1' 
+C11792 net_424 net_425 '$C8' 
+LX1_45a net_370 net_344 1 Winding
+C11759 net_372 GND '$C2' 
+C11763 net_371 net_372 '$C6' 
+C11782 net_428 net_431 '$C8' 
+R11751 net_344 net_326 '$R1'
+L11767 net_329 net_514 '$L1' 
+R11785 net_400 net_377 '$R1'
+LX1_52a net_424 net_400 1 Winding
+C11787 net_431 net_424 '$C6' 
+L11777 net_375 net_431 '$L1' 
+L11781 net_376 net_424 '$L1' 
+C11768 net_514 GND '$C1' 
+L11752 net_326 net_371 '$L1' 
+R11761 net_346 net_328 '$R1'
+L11762 net_328 7.6 '$L1' 
+R11776 net_432 net_375 '$R1'
+LX1_53a net_425 net_401 1 Winding
+R11780 net_399 net_376 '$R1'
+R11790 net_401 net_378 '$R1'
+L11786 net_377 net_425 '$L1' 
+LX1_46a net_371 net_345 1 Winding
+L11757 net_327 net_372 '$L1' 
+LU1_2a net_718 net_959 1 Winding
+C9274 net_958 GND '$C5' 
+L9273 net_6 net_958 '$L1' 
+C9278 net_718 net_958 '$C8' 
+C9279 net_633 GND '$C2' 
+R9272 net_959 net_6 '$R1'
+L9277 net_10 net_633 '$L1' 
+R9281 net_575 net_13 '$R1'
+LU1_4a net_633 net_575 1 Winding
+L9282 net_13 net_662 '$L1' 
+R9276 net_569 net_10 '$R1'
+C9270 net_718 GND '$C1' 
+LU1_3a net_958 net_569 1 Winding
+
+*end toplevel circuit
+.end

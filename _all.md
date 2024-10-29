@@ -818,6 +818,7 @@ Tuesday, May 9, 2023 @ 03:33:01 PM
 主要是三次谐波？为何，q=1啊
 
 重新问了一下师兄，domain这里选择spectral，![](2023-05-09-17-35-33.png)这里面有branchcurrent和nodevoltage，其实和打开winding调出来的没有什么区别，选中一个之后在最右边的function里面选择ang_deg，其实做的就是傅里叶分析，能直接告诉你频率，之后改table显示（或者一开始就创建一个table效果是一样的）这里注意找一下电频率，90/60*18，就是rpm/60*p，他的单位默认是khz，不要去找幅值，这里右边的量是角度！，真的是有点蠢，唉。
+看傅里叶基波赋值也是spectral但是要自爱最右侧选择mag（左侧的RMS还不会用），记得没有多取两个点也要设置FFT option从第二或者第三个点开始用于对齐频率，在110kw这个case里面就是24.9Hz
 
 一般电机设计中所提到的Btheta都是值得我算出来的Br的基波幅值，不是整个波形的最大值，不然由于磁钢形状不同，这个是无法比较的，不能把所有工作都交给计算极弧系数
 
@@ -2473,3 +2474,68 @@ invalid subcircuit format
 
 ![](2024-04-07-10-26-54.png)
 Vpulse maxwell冲击电压/上升时间
+
+Wednesday, April 10, 2024 @ 02:53:32 PM
+找出所有单相的F1通道进行对比，写出匝间电压的最大值
+还是优先调通模型，先把zf的参数全部抄过来看看
+maxwell如何修改local的参数
+![](2024-04-10-16-32-15.png)
+$符号在maxwell中定义全局变量或者project variable
+
+Wednesday, April 10, 2024 @ 08:49:58 PM
+coupling_script1(3) (C:/Users/Administrator/Desktop/)
+  Maxwell2DDesign1 (Transient, XY)
+    [error] Maxwell2d solver, process solver2d error: Internal Solver Error:  'Balloon Boundary does not support continue from a previous solved setup!'. Please contact ANSYS technical support. (8:47:01 下午  4月 10, 2024)
+    [error] Simulation completed with execution error on server: Local Machine. (8:47:01 下午  4月 10, 2024)
+气球边界无法从已有解开始求解，一般这样都要delete已有的结果重新仿真
+
+Thursday, April 11, 2024 @ 02:31:44 PM
+目前波形![](2024-04-11-14-32-13.png)
+波形收敛较慢，改动了电阻为1e-06，希望收敛快一点，如果调参有经验就好了
+很多情况下是没有nodeVoltage的，先用induced进行查看
+首先需要对试验的波形心里非常有底气才能开始调参
+
+当前的coupling script的版本是1(3)
+
+![](2024-04-19-16-32-14.png)
+目前有效电路的参数
+![](2024-04-19-16-32-56.png)
+比较像的结果如上
+
+
+Friday, May 3, 2024 @ 01:50:37 PM
+![](2024-05-03-13-50-39.png)
+c2g上升一个数量级看看结果
+![](2024-05-03-13-54-33.png)
+几乎没有变化，R2下降一个数量级看看结果
+也几乎没有变化，但是结果出现得非常快，怀疑参数没有成功同步
+L1下降一个数量级看看结果
+![](2024-05-03-14-02-44.png)
+幅值下降较多，可能还是需要调整大一点，L2重新回升两个数量级看看结果
+
+Saturday, May 4, 2024 @ 08:43:08 AM
+她有结果是因为L1调得特别小
+
+https://www.researchgate.net/figure/Radar-plots-for-comparison-of-the-650-900-and-1200-V-rated-SiC-GaN-and-Si-devices_fig3_377324545
+![](2024-05-24-10-56-27.png)
+这里没有显示出SIC上升时间短这一结论，是不是要全部推翻？
+![](2024-05-24-11-12-44.png)
+沈建新学生在这里也是模棱两可
+https://mp.weixin.qq.com/s/wF091UZApd9biyrshMcqvQ
+![](2024-05-24-11-14-09.png)
+这里似乎也没有特别说明开关频率会大，只是说会限制“最高载波频率”，这指的是重复脉冲的那个频率吧，和上升沿时间也没有关系
+https://baike.baidu.com/item/%E9%9B%86%E6%80%BB%E5%8F%82%E6%95%B0%E7%94%B5%E8%B7%AF/3772871
+集总参数电路、d、namda、分布
+https://gansystems.com/wp-content/uploads/2022/07/GS-065-004-1-L-DS-Rev-220712.pdf
+![](2024-05-24-11-29-46.png)
+这里有一个GAN是3ns上升沿
+https://www.wolfspeed.com/products/power/sic-mosfets/
+![](2024-05-24-11-30-46.png)
+这里有一个SiC是125ns，和Si的没有什么差别。
+
+%c collection path (only for sub-folders, not file names). When item is in multiple collections, user can choose between the different collections.
+%a last names of authors (not editors etc) or inventors. The maximum number of authors are changed under ‘Additional Settings’.
+%y year (extracted from Date field)
+%t title. Usually truncated after : . ? The maximal length of the remaining part of the title can be changed.
+{%a_}{%y_}{%t}: Abbott_Hrycak_1990_Measuring Resemblance in Sequence Data
+
